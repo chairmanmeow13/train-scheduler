@@ -1,0 +1,13 @@
+.main {
+	padding: 20px;
+}
+
+.panel {
+	padding: 10px;
+}
+
+.jumbotron {
+	background-color: #800000;
+	color: white;
+	text-align: center;
+}

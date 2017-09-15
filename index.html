@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<title>Loren's Train Scheduler</title>
+<head>
+		<!-- Bootstrap and JQuery Script -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<!-- External CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="javascript" src="logic.js"></script>
+	
+</head>	
+<body>
+	<div class="jumbotron">
+	  <h1>Train Scheduler</h1>
+	</div>
+	
+	<div class="main">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Current Train Schedule</div>
+				<table class="table">
+					    <thead>
+					      <tr>
+					        <th>Train Name</th>
+					        <th>Destination</th>
+					        <th>Frequency (min)</th>
+					        <th>Next Arrival</th>
+							<th>Minutes Away</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr>
+					        <td>John</td>
+					        <td>Doe</td>
+					        <td>john@example.com</td>
+					        <td>1</td>
+					        <td>2</td>
+					      </tr>
+					      <tr>
+					        <td>John</td>
+					        <td>Doe</td>
+					        <td>john@example.com</td>
+					        <td>1</td>
+					        <td>2</td>
+					      </tr>
+					      <tr>
+					        <td>John</td>
+					        <td>Doe</td>
+					        <td>john@example.com</td>
+					        <td>1</td>
+					        <td>2</td>
+					      </tr>
+					    </tbody>
+				</table>
+		</div>
+
+		<div class="panel panel-default">
+		  	<!-- Default panel contents -->
+		  	<div class="panel-heading">Add Train</div>
+		  	<form>
+			  <div class="form-group">
+			    <label for="newName">Train Name</label>
+			    <input type="text" class="form-control" id="newName">
+			  </div>
+			  <div class="form-group">
+			    <label for="newDestination">Destination</label>
+			    <input type="text" class="form-control" id="newDestination">
+			  </div>
+			  <div class="form-group">
+			    <label for="newTime">First Train Time (HH:mm military)</label>
+			    <input type="text" class="form-control" id="newTime">
+			  </div>
+			  <div class="form-group">
+			    <label for="newFreq">Frequency</label>
+			    <input type="number" class="form-control" id="newFreq">
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBVX8Td1EzaiJ6My2-sJWMLBt_zZmsZZAk",
+    authDomain: "trainscheduler-loren.firebaseapp.com",
+    databaseURL: "https://trainscheduler-loren.firebaseio.com",
+    projectId: "trainscheduler-loren",
+    storageBucket: "",
+    messagingSenderId: "779971756432"
+  };
+  firebase.initializeApp(config);
+</script>
+</body>
+</html>
