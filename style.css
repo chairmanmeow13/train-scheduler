@@ -1,13 +1,98 @@
-.main {
-	padding: 20px;
+.banner-panel{
+	background-color: #8b0000;
+	width:100%;
+	color:white;
+	text-align: center;
 }
 
-.panel {
-	padding: 10px;
+.banner-panel-header{
+	font-size: 36px;
+	font-weight: bold;
+	height: 50px;
 }
 
-.jumbotron {
-	background-color: #800000;
-	color: white;
+.banner-panel-body{
+	height: 35px;	
+}
+
+.panel-trains-header{
+	background-color: #8FBC8F;
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+.trainListColumnHeader{
+	font-weight: bold;
+	margin-top: 5px;
+	padding-bottom: 5px;
+	vertical-align: middle;
+}
+
+.trainButtons{
+	align-items: center;
+	align-content: center;
+	align-self: center;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	alignment-baseline: center;
+}
+.trainListing{
+	margin-top: 1px;
+	padding-bottom: 1px;
+	vertical-align: middle;
+}
+
+.trainItem{
+	margin-top: 5px;
+	padding-bottom: 5px;
+	vertical-align: middle;
+}
+
+.headerfonts{
+	font-family: 'Georgia', 'Times', Times New Roman, serif;
+	color: #ff0000;	
+	text-align: center;
+}
+
+h1{
+	font-size: 32px;
+	font-weight: bold;
+	font-family: 'Georgia', 'Times', Times New Roman, serif;
+	color: #ff0000;	
+	border-bottom: 3px #000000 solid;
+	text-align: center;}
+
+h3{
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Georgia', 'Times', Times New Roman, serif;
+	color: #ff0000;	
+	border-bottom: 3px #000000 solid;
+	text-align: center;
+}
+
+.answers {
+	width:100%;
+	margin-top: 5px;
+}
+
+.startbutton{
+	width: 100%;
+}
+.answerbuttons {
+	width: 100%;
+}
+
+#mainContainer {
+	margin: 20px;
+}
+
+#questionTimer{
+	text-align: center;
+	font-size: 14px;
+	font-style: italic;
+}
+
+#questionTextDiv {
 	text-align: center;
 }

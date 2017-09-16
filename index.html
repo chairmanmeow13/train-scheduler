@@ -1,90 +1,83 @@
 <!DOCTYPE html>
 <title>Loren's Train Scheduler</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="moment.js"></script>
+	<script type="text/javascript" src="logic.js"></script>
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-        <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    </head>
-    <body>
 
-    <!-- Jumbotron -->
-     <div class="jumbotron">
-         <h1 class="text-center">Train Schedule</h1>
-     </div>
+<body>
+	<section id="mainContainer">
 
-     <div class="container schedule-container">
-          <div class="row">
+		<div class="panel banner-panel">
+			<div class="banner-panel-header">
+			Train Scheduler
+			</div>
+		</div>
 
-              <!-- Sign-Up Panel-->
-              <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-                   <div class="panel panel-default">
-                        <div class="panel-heading">
-                             <h3 class="panel-title">Current Train Schedule</h3>
-                        </div>
-                        <div class="panel-body">
+		<div class="panel panel-default">
+			<div class="panel-header panel-trains-header">
+				Current Train Schedule
+			</div>
+			<div class="panel-body">
+				<div class="container">	
+					<div id="trainListHeader" class="row">
+						<div class="col-sm-3 trainListColumnHeader">
+							Train Name	
+						</div>
+						<div class="col-sm-2 trainListColumnHeader">
+							Destination
+						</div>
+						<div class="col-sm-2 trainListColumnHeader">
+							Frequency (min.)
+						</div>
+						<div class="col-sm-2 trainListColumnHeader">
+							Next Arrival
+						</div>
+						<div class="col-sm-2 trainListColumnHeader">
+							Minutes Away
+						</div>
+					</div> 
+					<div id="trainListDiv"> 
+						<div class="row trainListing">
+						</div> 
+					</div> 
+				</div>
+			</div>
+		</div>
 
-                             <!-- Sign-up Form (note the various input "types")-->
-                        <table class="train-schedule">
-                             <tr>
-                                  <th class="col-xs-3">Train Name
-                                  </th>
-                                  <th class="col-xs-2">Destination
-                                  </th>
-                                  <th class="col-xs-2">Frequency (min)
-                                  </th>
-                                  <th class="col-xs-2">Next Arrival
-                                  </th>
-                                  <th class="col-xs-2">Minutes Away
-                                  </th>
-                             </tr>
-                        </table>
+		<div class="panel panel-default">
+			<div class="panel-header panel-trains-header">
+				Add a Train
+			</div>
+			<div class="panel-body">
+				<form id="newTrainForm">
+					<label for="trainNameInput">Train Name:</label>
+					<input type="text" class="form-control" id="trainNameInput">
 
-                        </div>  <!-- closes panel-body -->
-                   </div> <!-- closes panel-default -->
-              </div> <!-- closes col-lg-6 -->
-         </div> <!-- closes row -->
-    </div>  <!-- closes container -->
+					<label for="destinationInput">Destination:</label>
+					<input type="text" class="form-control" id="destinationInput">
 
-     <div class="container input-container">
-          <div class="row">
+					<label for="departureTimeInput">First Train Departs (hh:mm - military time):</label>
+					<input type="text" class="form-control" id="departureTimeInput">
 
-              <!-- Sign-Up Panel-->
-              <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-                   <div class="panel panel-default">
-                        <div class="panel-heading">
-                             <h3 class="panel-title">Add Train</h3>
-                        </div>
-                        <div class="panel-body">
+					<label for="frequencyInput">Frequency (min):</label>
+					<input type="text" class="form-control" id="frequencyInput">
+					<br>
+					<button type="button" id="btnAddTrain" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	
+	<script>
+ 		$("#btnAddTrain").click(function(){
+ 			addTrainListing();
+ 		});
+	</script>
 
-                             <!-- Sign-up Form (note the various input "types")-->
-                             <form role="form">
-                               <div class="form-group">
-                                 <label for="text">Train Name</label>
-                                 <input type="text" class="form-control" id="name-input">
-                               </div>
-                               <div class="form-group">
-                                 <label for="text">Destination</label>
-                                 <input type="text" class="form-control" id="destination-input">
-                               </div>
-                               <div class="form-group">
-                                 <label for="text">First Train Time (HH:mm - military time)</label>
-                                 <input type="text" class="form-control" id="first-train-time-input">
-                               </div>
-                               <div class="form-group">
-                                 <label for="comment">Frequency (min)</label>
-                                 <input type="text" class="form-control" id="frequency-input">
-                               </div>
-                               <button type="submit" class="btn btn-default" id="add-train">Submit</button>
-                             </form>
-
-                        </div>  <!-- closes panel-body -->
-                   </div> <!-- closes panel-default -->
-              </div> <!-- closes col-lg-6 -->
-         </div> <!-- closes row -->
-    </div>  <!-- closes container -->
-    	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-        <script src="logic.js"></script>
-    </body>
-  </html>
+</body>
+</html>
